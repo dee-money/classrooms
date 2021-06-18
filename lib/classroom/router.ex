@@ -4,11 +4,11 @@ defmodule Classroom.Router do
   plug :match
   plug :dispatch
 
-  get "/lessons" do
-    lessons = Classroom.Curriculums.all_lessons()
+  get "/building" do
+    building = Classroom.Venues.all_buildings()
 
     conn
     |> put_resp_header("content-type", "application/json")
-    |> send_resp(200, Jason.encode!(lessons))
+    |> send_resp(200, Jason.encode!(building))
   end
 end
