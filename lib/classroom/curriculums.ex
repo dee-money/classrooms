@@ -1,19 +1,20 @@
-defmodule Classroom.Curriculums do
-  alias __MODULE__.Lesson
+defmodule Classroom.Venues do
+  alias __MODULE__.Building
 
-  defdelegate new_lesson(params), 
-    to: Lesson,
+  defdelegate new_building(params),
+    to: Building,
     as: :new
 
-  defdelegate all_lessons, 
-    to: Lesson.Store,
+  defdelegate all_buildings,
+    to: Building.Store,
     as: :all
 
-  defdelegate get_lesson(lesson_id), 
-    to: Lesson.Store,
+  defdelegate get_building(building_id),
+    to: Building.Store,
     as: :get
 
-  defdelegate store_lesson(lesson),
-    to: Lesson.Store,
+  defdelegate store_building(building),
+    to: Building.Store,
     as: :add
+
 end
