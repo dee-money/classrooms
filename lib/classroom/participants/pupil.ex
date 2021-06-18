@@ -1,5 +1,6 @@
 defmodule Classroom.Participants.Pupil do
-  defstruct [:id, :name, :age] 
+  @derive Jason.Encoder
+  defstruct [:id, :name, :age]
 
   def new(%{name: name, age: age}) do
     %__MODULE__{
