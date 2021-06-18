@@ -1,4 +1,5 @@
 defmodule Classroom.Participants.Instructor do
+  @derive Jason.Encoder
   defstruct [:id, :name, :expertise]
 
   def new(%{name: name, expertise: expertise}) do
