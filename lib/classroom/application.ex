@@ -8,6 +8,8 @@ defmodule Classroom.Application do
   def start(_type, _args) do
     children = [
       Classroom.Curriculums.Lesson.Store,
+      Classroom.Venues.Building.Store,
+      Classroom.Venues.Room.Store,
       {Plug.Cowboy, scheme: :http, plug: Classroom.Router, options: [port: 4040]}
       # Starts a worker by calling: Classroom.Worker.start_link(arg)
       # {Classroom.Worker, arg}
