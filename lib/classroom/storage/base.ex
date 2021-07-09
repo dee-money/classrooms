@@ -42,7 +42,7 @@ defmodule Classroom.Storage.Base do
             end 
           end)
           |> Enum.map(fn {key, value} -> 
-            module = Module.safe_concat(value.call, Store)
+            module = Module.safe_concat(value.module, Store)
             
             {key, module.get(value.resource_id)}  
           end)
