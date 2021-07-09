@@ -1,5 +1,7 @@
 defmodule Classroom.Venues.Room do
-  defstruct [:id, :number, :building_id]
+  defstruct [:id, :number, :building]
+  
+  alias Classroom.Storage.Association
 
   defmodule Store do
     use Classroom.Storage.Base, module: Classroom.Venues.Room
@@ -7,14 +9,11 @@ defmodule Classroom.Venues.Room do
 
   alias Classroom.Venues
 
-  def new(%Venues.Building{id: building_id}, %{number: number}) do
+  def new(%Venues.Building{} = building, %{number: number}) do
     %__MODULE__{
       id: UUID.uuid4(),
       number: number,
-      building_id: building_id
+      building: Association.new(building)
     }
   end
-
-  def building(%__MODULE__{building_id: building_id}), 
-    do: Venues.get_building(building_id)
 end
