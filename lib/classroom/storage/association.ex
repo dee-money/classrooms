@@ -1,5 +1,5 @@
 defmodule Classroom.Storage.Association do
-  defstruct [:resource_id, :call]
+  defstruct [:resource_id, :module]
   
   def new(%m{id: resource_id}) do
   	%__MODULE__{
