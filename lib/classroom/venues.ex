@@ -16,6 +16,10 @@ defmodule Classroom.Venues do
   defdelegate get_building(building_id), 
     to: Building.Store,
     as: :get
+  
+  defdelegate update_building(building, params),
+    to: Building.Store,
+    as: :update
 
   alias __MODULE__.Room
 
