@@ -1,8 +1,8 @@
 defmodule Classroom.Router do
   use Plug.Router
 
-  plug :match
-  plug :dispatch
+  plug(:match)
+  plug(:dispatch)
 
   get "/lessons" do
     lessons = Classroom.Curriculums.all_lessons()

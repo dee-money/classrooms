@@ -14,5 +14,5 @@ defmodule Classroom.Curriculums.Lesson do
       start_time: start_time,
       end_time: end_time
     }
-  end 
+  end
 end

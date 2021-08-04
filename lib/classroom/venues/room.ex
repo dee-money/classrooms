@@ -1,6 +1,6 @@
 defmodule Classroom.Venues.Room do
   defstruct [:id, :number, :building]
-  
+
   alias Classroom.Storage.Association
 
   defmodule Store do
