@@ -1,4 +1,5 @@
 defmodule Classroom.Venues.Room do
+  @derive Jason.Encoder
   defstruct [:id, :number, :building]
 
   alias Classroom.Storage.Association

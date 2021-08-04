@@ -1,4 +1,5 @@
 defmodule Classroom.Venues.Building do
+  @derive Jason.Encoder
   defstruct [:id, :name]
 
   defmodule Store do
