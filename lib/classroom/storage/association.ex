@@ -1,4 +1,5 @@
 defmodule Classroom.Storage.Association do
+  @derive Jason.Encoder
   defstruct [:resource_id, :module]
 
   def new(%m{id: resource_id}) do
