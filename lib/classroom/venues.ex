@@ -1,6 +1,10 @@
 defmodule Classroom.Venues do
   alias __MODULE__.Building
 
+  defdelegate new_building(parent_building, params), 
+    to: Building,
+    as: :new
+
   defdelegate new_building(params),
     to: Building,
     as: :new
