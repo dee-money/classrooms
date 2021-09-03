@@ -17,4 +17,18 @@ defmodule Classroom.Venues.Room do
       building: Association.new(building)
     }
   end
+
+  def search([{key, value}]) do
+    Store.all()
+    |> Enum.filter(fn room -> 
+      room = Map.from_struct(room)
+
+      case Map.get(room, key) do
+        %Classroom.Storage.Association{resource_id: id} ->
+          id == value.id
+
+        data -> data == value
+      end
+    end)
+  end
 end

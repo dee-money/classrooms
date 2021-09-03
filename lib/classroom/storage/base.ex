@@ -63,6 +63,20 @@ defmodule Classroom.Storage.Base do
         end)
       end
 
+      def search([{key, value}]) do
+        all()
+        |> Enum.filter(fn item -> 
+          item = Map.from_struct(item)
+
+          case {Map.get(item, key), value} do
+            {%Classroom.Storage.Association{resource_id: id}, value} when is_map(value) ->
+              id == Map.get(value, :id)
+
+            {data, value} -> data == value
+          end
+        end)
+      end
+
       def preload(resource) do
         preloaded =
           resource
