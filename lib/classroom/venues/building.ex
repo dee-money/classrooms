@@ -7,6 +7,9 @@ defmodule Classroom.Venues.Building do
   defmodule Store do
     use Classroom.Storage.Base, module: Classroom.Venues.Building
   end
+  
+  def new(%{"name" => name}), 
+    do: new(%{name: name})
 
   def new(%{name: name}) do
     %__MODULE__{
